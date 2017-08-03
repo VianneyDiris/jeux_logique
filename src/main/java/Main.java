@@ -6,8 +6,11 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ChallengerMode mode = new ChallengerMode();
+		mode.randomNumber();
+		
 		mode.lecture();
-		//System.out.println(tabChiffre[0]+tabChiffre[1]);
+		
+		mode.comparerNombre();
 		
 		
 		
