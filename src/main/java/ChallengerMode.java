@@ -1,5 +1,6 @@
 package main.java;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 import org.apache.commons.lang3.ArrayUtils;
@@ -10,13 +11,12 @@ public class ChallengerMode {
 	int tabNombreOrdinateur[] = new int [reader.getNbCase()];
 	String tabIndice[] = new String [reader.getNbCase()];
 	
-	//
-	public int [] lecture() {
+	//demande un nombre à l'utilisateur et l'enregistre dans un tableau
+	public void lecture() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Veuillez saisir un nombre");
 		int nombre = sc.nextInt();
 		int current=nombre;
-	
 			for (int i = 0;i<reader.getNbCase();i++) {
 				tabNombreJoueur[i]=current%10;
 				current=current/10;
@@ -24,33 +24,24 @@ public class ChallengerMode {
 		
 			//renverse le tableau
 			ArrayUtils.reverse(tabNombreJoueur);
-				for (int i = 0;i<tabNombreJoueur.length;i++) {
-					System.out.print(tabNombreJoueur[i]);
-				}
-	
-	sc.close();
-	System.out.println("");
-	return tabNombreJoueur;
+			//sc.close();
 	}
 	
-	
-	public int [] randomNumber() {
+	//choix du nombre par l'ordinateur et l'enregistre dans un tableau
+	public void randomNumber() {
 		
 		for(int i =0;i<reader.getNbCase();i++) {
 			int chiffre = new Random().nextInt(10);
 			tabNombreOrdinateur[i] = chiffre;
-			
-		}
+			}
 		
 		for (int i = 0;i<reader.getNbCase();i++) {
 			System.out.print(tabNombreOrdinateur[i]);
-		}
+			}
 		System.out.println("");
-		
-		return tabNombreOrdinateur;
 	}
 	
-	
+	//fonction qui compare les 2 tableaux pour donner les indices
 	public void comparerNombre() {
 		for (int i = 0;i<reader.getNbCase();i++) {
 			if (tabNombreJoueur[i]==tabNombreOrdinateur[i]) {
@@ -63,12 +54,43 @@ public class ChallengerMode {
 					tabIndice[i] = "-";
 				}
 		}
+		System.out.print("Proposition : ");
 		for (int i = 0;i<tabNombreJoueur.length;i++) {
 			System.out.print(tabNombreJoueur[i]);
 		}
-		System.out.println(" ");
+		System.out.print(" -> Réponse : ");
 		for (int i = 0;i<tabNombreJoueur.length;i++) {
 			System.out.print(tabIndice[i]);
 		}
 	}
+	
+	
+	
+	public void partieChallenger() {
+		randomNumber();
+		int nbEssai = reader.getNbEssai();
+		while (!Arrays.equals(tabNombreJoueur, tabNombreOrdinateur) && nbEssai!=0) {
+					lecture();
+					comparerNombre();
+					nbEssai--;
+					System.out.println("\nIl vous reste "+nbEssai+" tours");
+										
+				}
+				
+		if (nbEssai==0) {
+			System.out.println("Vous avez perdu, nombre d'essai dépassé.");
+			System.out.print("La solution était ");
+			for (int i = 0;i<reader.getNbCase();i++) {
+				System.out.print(tabNombreOrdinateur[i]);
+				}
+			
+		}
+		else {
+			System.out.println("Félicitation vous avez trouvé la combinaison");
+			
+		}
+		
+	}
+	
+	
 }
