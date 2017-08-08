@@ -32,8 +32,7 @@ public class DefenseurMode {
 		public void randomNumber() {
 			
 			for(int i =0;i<reader.getNbCase();i++) {
-				int chiffre = new Random().nextInt(10);
-				tabNombreOrdinateur[i] = chiffre;
+				tabNombreOrdinateur[i] = 5;
 				}
 			
 			for (int i = 0;i<reader.getNbCase();i++) {
@@ -41,7 +40,9 @@ public class DefenseurMode {
 				}
 			System.out.println("");
 		}
-		//demande les indices aux joueurs
+		
+		
+		//demande les indices aux joueurs + verification indices
 		public void indice () {
 			Scanner sc = new Scanner(System.in);
 			System.out.print("Réponse : ");
