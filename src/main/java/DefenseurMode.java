@@ -48,6 +48,17 @@ public class DefenseurMode {
 			System.out.print("Réponse : ");
 			String indice = sc.nextLine();
 			tabIndice = indice.split("");
+			
+			//vérification des indices
+			for(int i = 0;i<reader.getNbCase();i++) {
+				if((tabIndice[i].equals("-") && tabNombreOrdinateur[i]>tabNombreJoueur[i]) || (tabIndice[i].equals("+") && tabNombreOrdinateur[i]<tabNombreJoueur[i]) || (tabIndice[i].equals("=") && tabNombreOrdinateur[i]==tabNombreJoueur[i])) {
+					System.out.println("indice bien fourni");
+				}
+				else {
+					System.out.println("vous essayez de tricher");
+					indice();
+				}
+			}
 						
 		}
 		
