@@ -28,18 +28,18 @@ public class DefenseurMode {
 				//sc.close();
 		}
 		
-	//choix du nombre par l'ordinateur et l'enregistre dans un tableau
-		public void randomNumber() {
-			
-			for(int i =0;i<reader.getNbCase();i++) {
-				tabNombreOrdinateur[i] = 5;
-				}
-			
-			for (int i = 0;i<reader.getNbCase();i++) {
-				System.out.print(tabNombreOrdinateur[i]);
-				}
-			System.out.println("");
-		}
+//	/envoyer sur JoueurOrdinateur
+//		public void randomNumber() {
+//			
+//			for(int i =0;i<reader.getNbCase();i++) {
+//				tabNombreOrdinateur[i] = 5;
+//				}
+//			
+//			for (int i = 0;i<reader.getNbCase();i++) {
+//				System.out.print(tabNombreOrdinateur[i]);
+//				}
+//			System.out.println("");
+//		}
 		
 		
 		//demande les indices aux joueurs + verification indices
@@ -83,7 +83,7 @@ public class DefenseurMode {
 		
 		public void partieDefenseur() {
 			lecture();
-			randomNumber();
+			//randomNumber();
 			int nbEssai = reader.getNbEssai();
 			while (!Arrays.equals(tabNombreJoueur, tabNombreOrdinateur) && nbEssai!=0) {
 						indice();

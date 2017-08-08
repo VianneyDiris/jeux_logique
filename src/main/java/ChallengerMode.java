@@ -11,21 +11,21 @@ public class ChallengerMode {
 	int tabNombreOrdinateur[] = new int [reader.getNbCase()];
 	String tabIndice[] = new String [reader.getNbCase()];
 	
-	//demande un nombre à l'utilisateur et l'enregistre dans un tableau
-	public void lecture() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Veuillez saisir un nombre");
-		int nombre = sc.nextInt();
-		int current=nombre;
-			for (int i = 0;i<reader.getNbCase();i++) {
-				tabNombreJoueur[i]=current%10;
-				current=current/10;
-			}
-		
-			//renverse le tableau
-			ArrayUtils.reverse(tabNombreJoueur);
-			//sc.close();
-	}
+	//envoyer sur JoueurHumain
+//	public void lecture() {
+//		Scanner sc = new Scanner(System.in);
+//		System.out.println("Veuillez saisir un nombre");
+//		int nombre = sc.nextInt();
+//		int current=nombre;
+//			for (int i = 0;i<reader.getNbCase();i++) {
+//				tabNombreJoueur[i]=current%10;
+//				current=current/10;
+//			}
+//		
+//			//renverse le tableau
+//			ArrayUtils.reverse(tabNombreJoueur);
+//			//sc.close();
+//	}
 	
 	//choix du nombre par l'ordinateur et l'enregistre dans un tableau
 	public void randomNumber() {
@@ -70,7 +70,7 @@ public class ChallengerMode {
 		randomNumber();
 		int nbEssai = reader.getNbEssai();
 		while (!Arrays.equals(tabNombreJoueur, tabNombreOrdinateur) && nbEssai!=0) {
-					lecture();
+					//lecture();
 					comparerNombre();
 					nbEssai--;
 					System.out.println("\nIl vous reste "+nbEssai+" tours");
