@@ -7,7 +7,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		
 	RechercheCodeSecret recherche = new RechercheCodeSecret();
-	recherche.challenger();
+	recherche.defenseur();
 
 		
 		

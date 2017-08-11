@@ -12,38 +12,9 @@ public class DefenseurMode {
 	int tabNombreOrdinateur[] = new int [reader.getNbCase()];
 	String tabIndice[] = new String [reader.getNbCase()];
 	
-	//demande un nombre à l'utilisateur et l'enregistre dans un tableau
-	public void lecture() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Veuillez saisir un nombre");
-		int nombre = sc.nextInt();
-		int current=nombre;
-			for (int i = 0;i<reader.getNbCase();i++) {
-					tabNombreJoueur[i]=current%10;
-					current=current/10;
-			}
 			
-		//renverse le tableau
-		ArrayUtils.reverse(tabNombreJoueur);
-				//sc.close();
-		}
-		
-//	/envoyer sur JoueurOrdinateur
-//		public void randomNumber() {
-//			
-//			for(int i =0;i<reader.getNbCase();i++) {
-//				tabNombreOrdinateur[i] = 5;
-//				}
-//			
-//			for (int i = 0;i<reader.getNbCase();i++) {
-//				System.out.print(tabNombreOrdinateur[i]);
-//				}
-//			System.out.println("");
-//		}
-		
-		
 		//demande les indices aux joueurs + verification indices
-		public void indice () {
+		public void indice (JoueurHumain humain, JoueurOrdinateur ordinateur) {
 			Scanner sc = new Scanner(System.in);
 			System.out.print("Réponse : ");
 			String indice = sc.nextLine();
@@ -51,43 +22,44 @@ public class DefenseurMode {
 			
 			//vérification des indices
 			for(int i = 0;i<reader.getNbCase();i++) {
-				if((tabIndice[i].equals("-") && tabNombreOrdinateur[i]>tabNombreJoueur[i]) || (tabIndice[i].equals("+") && tabNombreOrdinateur[i]<tabNombreJoueur[i]) || (tabIndice[i].equals("=") && tabNombreOrdinateur[i]==tabNombreJoueur[i])) {
-					System.out.println("indice bien fourni");
+				if((tabIndice[i].equals("-") && ordinateur.getTabNombreJoueur()[i]>humain.getTabNombreJoueur()[i]) || (tabIndice[i].equals("+") && ordinateur.getTabNombreJoueur()[i]<humain.getTabNombreJoueur()[i]) || (tabIndice[i].equals("=") && ordinateur.getTabNombreJoueur()[i]==humain.getTabNombreJoueur()[i])) {
+					
 				}
+			
 				else {
-					System.out.println("vous essayez de tricher");
-					indice();
+					System.out.println("vous avez essayé de tricher");
+					indice(humain,ordinateur);
 				}
 			}
 						
 		}
 		
 		//change le numéro en fonction des indices
-		public void adapteNumero() {
+		public void adapteNumero(JoueurOrdinateur ordinateur) {
 			for(int i = 0;i<reader.getNbCase();i++) {
 				if(tabIndice[i].equals("-")) {
-					tabNombreOrdinateur[i] = tabNombreOrdinateur[i] - 1;
+					ordinateur.getTabNombreJoueur()[i] = ordinateur.getTabNombreJoueur()[i] - 1;
 				}
 				else if(tabIndice[i].equals("+")) {
-					tabNombreOrdinateur[i] = tabNombreOrdinateur[i] + 1;
+					ordinateur.getTabNombreJoueur()[i] = ordinateur.getTabNombreJoueur()[i] + 1;
 				}
 				else {
-					tabNombreOrdinateur[i] = tabNombreOrdinateur[i];
+					ordinateur.getTabNombreJoueur()[i] = ordinateur.getTabNombreJoueur()[i];
 				}
 			}
 			for (int i = 0;i<reader.getNbCase();i++) {
-				System.out.print(tabNombreOrdinateur[i]);
+				System.out.print(ordinateur.getTabNombreJoueur()[i]);
 				}
 			
 		}
 		
-		public void partieDefenseur() {
-			lecture();
-			//randomNumber();
+		public void partieDefenseur(JoueurHumain humain, JoueurOrdinateur ordinateur) {
+			humain.choixNombre();
+			ordinateur.choixNombre();
 			int nbEssai = reader.getNbEssai();
-			while (!Arrays.equals(tabNombreJoueur, tabNombreOrdinateur) && nbEssai!=0) {
-						indice();
-						adapteNumero();						
+			while (!Arrays.equals(humain.getTabNombreJoueur(), ordinateur.getTabNombreJoueur()) && nbEssai!=0) {
+						indice(humain,ordinateur);
+						adapteNumero(ordinateur);						
 						nbEssai--;
 						System.out.println("\nIl reste "+nbEssai+" tours");
 											
