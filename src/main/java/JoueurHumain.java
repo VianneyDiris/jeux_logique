@@ -4,6 +4,9 @@ import java.util.Scanner;
 import org.apache.commons.lang3.ArrayUtils;
 
 public class JoueurHumain extends Joueur {
+	private ReaderFile reader = new ReaderFile();
+	private int tabNombreJoueur[] = new int [reader.getNbCase()];
+	
 	public void choixNombre() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Veuillez saisir un nombre");
@@ -16,7 +19,9 @@ public class JoueurHumain extends Joueur {
 			//renverse le tableau
 			ArrayUtils.reverse(tabNombreJoueur);
 	}
-	
+	public int [] getTabNombreJoueur() {
+		return this.tabNombreJoueur;
+	}
 	
 
 }
