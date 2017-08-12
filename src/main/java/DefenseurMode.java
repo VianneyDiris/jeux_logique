@@ -8,8 +8,6 @@ import org.apache.commons.lang3.ArrayUtils;
 
 public class DefenseurMode {
 	ReaderFile reader = new ReaderFile();
-	int tabNombreJoueur[] = new int [reader.getNbCase()];
-	int tabNombreOrdinateur[] = new int [reader.getNbCase()];
 	String tabIndice[] = new String [reader.getNbCase()];
 	
 			
