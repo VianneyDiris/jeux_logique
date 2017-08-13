@@ -6,8 +6,8 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-	RechercheCodeSecret recherche = new RechercheCodeSecret();
-	recherche.duel();
+	Menu menu = new Menu();
+	menu.menuJeu();
 
 		
 		

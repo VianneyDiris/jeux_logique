@@ -9,7 +9,7 @@ public class JoueurHumain extends Joueur {
 	
 	public void choixNombre() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Veuillez saisir un nombre");
+		System.out.println("\nVeuillez saisir un nombre");
 		int nombre = sc.nextInt();
 		int current=nombre;
 			for (int i = 0;i<reader.getNbCase();i++) {

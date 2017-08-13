@@ -49,32 +49,68 @@ public class DuelMode {
 				}
 							
 			}
+			
+			public void adapteNumero(JoueurOrdinateur ordinateur) {
+				for(int i = 0;i<reader.getNbCase();i++) {
+					if(tabIndice[i].equals("-")) {
+						ordinateur.getTabNombreJoueur()[i] = ordinateur.getTabNombreJoueur()[i] - 1;
+					}
+					else if(tabIndice[i].equals("+")) {
+						ordinateur.getTabNombreJoueur()[i] = ordinateur.getTabNombreJoueur()[i] + 1;
+					}
+					else {
+						ordinateur.getTabNombreJoueur()[i] = ordinateur.getTabNombreJoueur()[i];
+					}
+				}
+				for (int i = 0;i<reader.getNbCase();i++) {
+					System.out.print(ordinateur.getTabNombreJoueur()[i]);
+					}
+				
+			}
 	
 	public void partieDuel(JoueurHumain humain, JoueurOrdinateur ordinateur,JoueurHumain humain2, JoueurOrdinateur ordinateur2) {
 		ordinateur.randomNumber();
-		
+		humain.choixNombre();
+		comparerNombre(humain,ordinateur);
 		humain2.choixNombre();
 		ordinateur2.choixNombre();
 		indice(humain2,ordinateur2);
+		adapteNumero(ordinateur2);
 		int nbEssai = reader.getNbEssai();
-		while (!Arrays.equals(humain.getTabNombreJoueur(),ordinateur.getTabNombreJoueur()) && nbEssai!=0) {
+		while (!Arrays.equals(humain.getTabNombreJoueur(),ordinateur.getTabNombreJoueur()) && nbEssai!=0 && !Arrays.equals(humain2.getTabNombreJoueur(),ordinateur2.getTabNombreJoueur())) {
+			
 			humain.choixNombre();
 			comparerNombre(humain,ordinateur);
-					nbEssai--;
+			indice(humain2,ordinateur2);
+			adapteNumero(ordinateur2);
+			
+			
+			
+			
+			
+			nbEssai--;
 					//System.out.println("\nIl vous reste "+nbEssai+" tours");
 										
 				}
 				
-		if (nbEssai==0) {
-			System.out.println("Vous avez perdu, nombre d'essai dépassé.");
+		if (nbEssai==0 && !Arrays.equals(humain.getTabNombreJoueur(),ordinateur.getTabNombreJoueur())) {
+			System.out.println("Vous avez perdu.");
 			System.out.print("La solution était ");
 			for (int i = 0;i<reader.getNbCase();i++) {
 				System.out.print(ordinateur.getTabNombreJoueur()[i]);
 				}
 			
 		}
-		else {
-			System.out.println("Félicitation vous avez trouvé la combinaison");
+		if (nbEssai==0 && !Arrays.equals(humain2.getTabNombreJoueur(),ordinateur2.getTabNombreJoueur())) {
+			System.out.println("Félicitation vous avez vaincu l'ordinateur");
+			
+		}
+		if (nbEssai!=0 && Arrays.equals(humain.getTabNombreJoueur(),ordinateur.getTabNombreJoueur())) {
+			System.out.println("Félicitation vous avez trouvé la bonne combinaison dans le temps imparti");
+		}
+		if (nbEssai!=0 && Arrays.equals(humain2.getTabNombreJoueur(),ordinateur2.getTabNombreJoueur())) {
+			System.out.println("Vous avez perdu. L'ordinateur a trouvé votre combinaison");
+			
 			
 		}
 		
