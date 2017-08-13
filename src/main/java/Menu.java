@@ -3,18 +3,6 @@ package main.java;
 import java.util.Scanner;
 
 public class Menu {
-	void clear ()
-	{
-	  Runtime runtime = Runtime.getRuntime ();
-	  String args[] = {"bin/sh", "-c", "clear"};
-	  try {
-		  final Process p = runtime.exec(args);	 
-	  }
-	  catch (Exception e)
-	  {
-	      System.out.print(e);
-	  }
-	}
 	
 	public void menuJeu() {
 		Scanner sc = new Scanner(System.in);
@@ -37,7 +25,7 @@ public class Menu {
 		
 		else {
 			System.out.println("Vous avez choisi aucun jeu");
-			clear();
+			
 			menuJeu();
 		}		
 		
@@ -67,7 +55,6 @@ public class Menu {
 		
 		else {
 			System.out.println("Vous avez choisi aucun mode");
-			clear();
 			menuJeu();
 		}		
 		

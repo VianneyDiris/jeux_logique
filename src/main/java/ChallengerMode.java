@@ -5,6 +5,11 @@ import java.util.Random;
 import java.util.Scanner;
 import org.apache.commons.lang3.ArrayUtils;
 
+/**
+ * @author vianney
+ * @version 0.1
+ *
+ */
 public class ChallengerMode {
 	ReaderFile reader = new ReaderFile();
 	String tabIndice[] = new String [reader.getNbCase()];
