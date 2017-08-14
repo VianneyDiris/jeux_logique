@@ -2,11 +2,20 @@ package main.java;
 
 import java.util.Arrays;
 import java.util.Scanner;
-
+/**
+ * @author vianney
+ * @version 0.1
+ *classe contenant le mode duel
+ */
 public class DuelMode {
 	ReaderFile reader = new ReaderFile();
 	String tabIndice[] = new String [reader.getNbCase()];
 	
+	/**
+	 *fonction qui fournit les indices au joueur
+	 * @param JoueurHumain,JoueurOrdinateur
+	 * 
+	 */
 	public void comparerNombre(JoueurHumain humain, JoueurOrdinateur ordinateur) {
 		for (int i = 0;i<reader.getNbCase();i++) {
 			if (humain.getTabNombreJoueur()[i]==ordinateur.getTabNombreJoueur()[i]) {
@@ -29,12 +38,16 @@ public class DuelMode {
 		}
 	}
 	
-	//demande les indices aux joueurs + verification indices
-			public void indice (JoueurHumain humain, JoueurOrdinateur ordinateur) {
-				Scanner sc = new Scanner(System.in);
-				System.out.print("Réponse : ");
-				String indice = sc.nextLine();
-				tabIndice = indice.split("");
+	/**
+	 *fonction qui demande les indices aux joueurs + verifie les indices
+	 * @param JoueurHumain,JoueurOrdinateur
+	 * 
+	 */
+		public void indice (JoueurHumain humain, JoueurOrdinateur ordinateur) {
+			Scanner sc = new Scanner(System.in);
+			System.out.print("Réponse : ");
+			String indice = sc.nextLine();
+			tabIndice = indice.split("");
 				
 				//vérification des indices
 				for(int i = 0;i<reader.getNbCase();i++) {
@@ -50,11 +63,16 @@ public class DuelMode {
 							
 			}
 			
-			public void adapteNumero(JoueurOrdinateur ordinateur) {
-				for(int i = 0;i<reader.getNbCase();i++) {
-					if(tabIndice[i].equals("-")) {
-						ordinateur.getTabNombreJoueur()[i] = ordinateur.getTabNombreJoueur()[i] - 1;
-					}
+		/**
+		 *fonction qui adapte le numéro en fonction des indices fournit par le joueur 
+		 * @param JoueurOrdinateur
+		 * 
+		 */
+		public void adapteNumero(JoueurOrdinateur ordinateur) {
+			for(int i = 0;i<reader.getNbCase();i++) {
+				if(tabIndice[i].equals("-")) {
+					ordinateur.getTabNombreJoueur()[i] = ordinateur.getTabNombreJoueur()[i] - 1;
+				}
 					else if(tabIndice[i].equals("+")) {
 						ordinateur.getTabNombreJoueur()[i] = ordinateur.getTabNombreJoueur()[i] + 1;
 					}
@@ -68,6 +86,11 @@ public class DuelMode {
 				
 			}
 	
+	/**
+	*fonction qui permet de jouer en mode duel
+	* @param JoueurHumain,JoueurOrdinateur
+	* 
+	*/		
 	public void partieDuel(JoueurHumain humain, JoueurOrdinateur ordinateur,JoueurHumain humain2, JoueurOrdinateur ordinateur2) {
 		ordinateur.randomNumber();
 		humain.choixNombre();

@@ -7,16 +7,22 @@ import org.apache.commons.lang3.ArrayUtils;
 
 /**
  * @author vianney
- * @version 0.1
- *
+ * @version 0.2
+ *classe contenant le mode challenger
  */
 public class ChallengerMode {
 	ReaderFile reader = new ReaderFile();
 	String tabIndice[] = new String [reader.getNbCase()];
 	
 
-	
-	//fonction qui compare les 2 tableaux pour donner les indices
+	/**
+	 *fonction qui compare les 2 tableaux pour donner les indices
+	 * @param humain
+	 * 		JoueurHumain
+	 * @param ordinateur
+	 * 		JoueurOrdinateur
+	 * 
+	 */
 	public void comparerNombre(JoueurHumain humain, JoueurOrdinateur ordinateur) {
 		for (int i = 0;i<reader.getNbCase();i++) {
 			if (humain.getTabNombreJoueur()[i]==ordinateur.getTabNombreJoueur()[i]) {
@@ -40,7 +46,14 @@ public class ChallengerMode {
 	}
 	
 	
-	
+	/**
+	 *fonction qui permet de jouer en mode challenger
+	 * @param humain
+	 * 	JoueurHumain
+	 * @param ordinateur
+	 * 		JoueurOrdinateur
+	 * 
+	 */
 	public void partieChallenger(JoueurHumain humain, JoueurOrdinateur ordinateur) {
 		ordinateur.randomNumber();
 		
@@ -67,6 +80,7 @@ public class ChallengerMode {
 		}
 		
 	}
+	
 	
 	public void testCombinaison(JoueurHumain humain, JoueurOrdinateur ordinateur) {
 		for(int i = 0; i<reader.getNbCase();i++) {

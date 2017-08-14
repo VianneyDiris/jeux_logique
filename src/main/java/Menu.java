@@ -1,9 +1,16 @@
 package main.java;
 
 import java.util.Scanner;
-
+/**
+ * @author vianney
+ * @version 0.1
+ *classe permettant de choisir le jeu et le mode de jeu
+ */
 public class Menu {
-	
+	/**
+	 *fonction qui permet de choisir son jeu
+	 *  
+	 */
 	public void menuJeu() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Veuillez choisir votre jeu :");
@@ -33,6 +40,10 @@ public class Menu {
 		
 	}
 	
+	/**
+	 *fonction qui permet de choisir le mode de jeu de Recherche +-
+	 *  
+	 */
 	public void choixModeCodeSecret() {
 		RechercheCodeSecret recherche = new RechercheCodeSecret();
 		Scanner sc = new Scanner(System.in);
@@ -60,6 +71,10 @@ public class Menu {
 		
 	}
 	
+	/**
+	 *fonction qui permet de choisir le mode de jeu de mastermind
+	 *  
+	 */
 	public void choixModeMastermind() {
 		Mastermind mastermind  = new Mastermind();
 		Scanner sc = new Scanner(System.in);

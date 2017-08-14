@@ -6,12 +6,20 @@ import java.util.Scanner;
 
 import org.apache.commons.lang3.ArrayUtils;
 
+/**
+ * @author vianney
+ * @version 0.1
+ *classe contenant le mode defenseur
+ */
 public class DefenseurMode {
 	ReaderFile reader = new ReaderFile();
 	String tabIndice[] = new String [reader.getNbCase()];
 	
-			
-		//demande les indices aux joueurs + verification indices
+		/**
+		 *fonction qui demande les indices aux joueurs + verifie les indices
+		 * @param JoueurHumain,JoueurOrdinateur
+		 * 
+		 */
 		public void indice (JoueurHumain humain, JoueurOrdinateur ordinateur) {
 			Scanner sc = new Scanner(System.in);
 			System.out.print("Réponse : ");
@@ -32,7 +40,11 @@ public class DefenseurMode {
 						
 		}
 		
-		//change le numéro en fonction des indices
+		/**
+		 *change le numéro de l'ordinateur en fonction des indices
+		 * @param JoueurOrdinateur
+		 * 
+		 */
 		public void adapteNumero(JoueurOrdinateur ordinateur) {
 			for(int i = 0;i<reader.getNbCase();i++) {
 				if(tabIndice[i].equals("-")) {
@@ -51,6 +63,11 @@ public class DefenseurMode {
 			
 		}
 		
+		/**
+		 *fonction qui permet de jouer en mode defenseur
+		 * @param JoueurHumain,JoueurOrdinateur
+		 * 
+		 */
 		public void partieDefenseur(JoueurHumain humain, JoueurOrdinateur ordinateur) {
 			humain.choixNombre();
 			ordinateur.choixNombre();
