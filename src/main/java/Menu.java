@@ -13,10 +13,10 @@ public class Menu {
 		int choixJeu = sc.nextInt();
 		
 		if (choixJeu==1) {
-			
+			choixModeMastermind();
 		}
 		else if (choixJeu==2) {
-			choixMode();
+			choixModeCodeSecret();
 			
 		}
 		else if (choixJeu==3) {
@@ -33,7 +33,7 @@ public class Menu {
 		
 	}
 	
-	public void choixMode() {
+	public void choixModeCodeSecret() {
 		RechercheCodeSecret recherche = new RechercheCodeSecret();
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Veuillez choisir votre mode :");
@@ -51,6 +51,33 @@ public class Menu {
 		}
 		else if (choixMode==3) {
 			recherche.duel();
+		}
+		
+		else {
+			System.out.println("Vous avez choisi aucun mode");
+			menuJeu();
+		}		
+		
+	}
+	
+	public void choixModeMastermind() {
+		Mastermind mastermind  = new Mastermind();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Veuillez choisir votre mode :");
+		System.out.println("1 : Challenger");
+		System.out.println("2 : Défenseur");
+		System.out.println("3 : Duel");
+		int choixMode = sc.nextInt();
+		
+		if (choixMode==1) {
+			mastermind.challenger();
+		}
+		else if (choixMode==2) {
+			
+			
+		}
+		else if (choixMode==3) {
+			
 		}
 		
 		else {

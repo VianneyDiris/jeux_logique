@@ -68,5 +68,23 @@ public class ChallengerMode {
 		
 	}
 	
+	public void testCombinaison(JoueurHumain humain, JoueurOrdinateur ordinateur) {
+		for(int i = 0; i<reader.getNbCase();i++) {
+			for(int j = 0;i<reader.getNbCase();j++) {
+				if(humain.getTabNombreJoueur()[i]==ordinateur.getTabNombreJoueur()[j]){
+					
+				}
+				
+			}
+			
+		}
+		
+	}
+	
+	public void challenger(JoueurHumain humain, JoueurOrdinateur ordinateur) {
+		ordinateur.combinaison();
+		humain.choixCombinaison();
+	}
+	
 	
 }

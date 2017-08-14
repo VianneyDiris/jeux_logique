@@ -18,4 +18,13 @@ public class ReaderFile {
 		String nbChiffre = bundle.getString("nombre.chiffre");
 	return Integer.parseInt(nbChiffre);
 	}
+	
+	public boolean getModeDeveloppeur() {
+		if(bundle.getString("mode.developpeur").equals("oui")) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 }
