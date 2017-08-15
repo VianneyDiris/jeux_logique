@@ -6,10 +6,10 @@ import java.util.Scanner;
 import org.apache.commons.lang3.ArrayUtils;
 
 /**
+ * classe contenant le mode challenger
  * @author vianney
  * @version 0.2
- *classe contenant le mode challenger
- */
+  */
 public class ChallengerMode {
 	ReaderFile reader = new ReaderFile();
 	String tabIndice[] = new String [reader.getNbCase()];
@@ -83,21 +83,34 @@ public class ChallengerMode {
 	
 	
 	public void testCombinaison(JoueurHumain humain, JoueurOrdinateur ordinateur) {
-		for(int i = 0; i<reader.getNbCase();i++) {
-			for(int j = 0;i<reader.getNbCase();j++) {
-				if(humain.getTabNombreJoueur()[i]==ordinateur.getTabNombreJoueur()[j]){
-					
+		int compteurBienPlace = 0;
+		int compteurMalPlace  = 0;
+		for (int j = 0;j<reader.getNbCase();j++) {
+			for (int i = 0;i<reader.getNbCase();i++) {
+				
+				if(humain.getTabNombreJoueur()[j]==ordinateur.getTabNombreJoueur()[i]) {
+					if(j==i) {
+					compteurBienPlace=compteurBienPlace+1;
+					}
+					else {
+						compteurMalPlace=compteurMalPlace+1;
+					}
 				}
 				
 			}
-			
 		}
+			
+		
+		
+		System.out.println("Réponse : "+compteurBienPlace+" bien placé "+compteurMalPlace+" mal placé" );
 		
 	}
+	
 	
 	public void challenger(JoueurHumain humain, JoueurOrdinateur ordinateur) {
 		ordinateur.combinaison();
 		humain.choixCombinaison();
+		testCombinaison(humain,ordinateur);
 	}
 	
 	

@@ -35,14 +35,20 @@ public class JoueurHumain extends Joueur {
 	public void choixCombinaison() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Veuillez saisir une combinaison entre 0 et "+reader.getNbChiffre());
-		int nombre = sc.nextInt(reader.getNbChiffre() - 0);
+		int nombre = sc.nextInt();
 		int current=nombre;
 			for (int i = 0;i<reader.getNbCase();i++) {
-				tabNombreJoueur[i]=current%10;
+				this.tabNombreJoueur[i]=current%10;
 				current=current/10;
+				if(this.tabNombreJoueur[i]>reader.getNbChiffre()) {
+					System.out.println("Vous avez entré un nombre contenant un chiffre plus grand que "+reader.getNbChiffre());
+					choixCombinaison();
+				}
 			}
 			//renverse le tableau
-			ArrayUtils.reverse(tabNombreJoueur);
+			ArrayUtils.reverse(this.tabNombreJoueur);
+			
+			
 	}
 	
 	/**

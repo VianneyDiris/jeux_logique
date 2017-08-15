@@ -1,5 +1,6 @@
 package main.java;
 
+import java.io.IOException;
 import java.util.Scanner;
 /**
  * @author vianney
@@ -11,7 +12,9 @@ public class Menu {
 	 *fonction qui permet de choisir son jeu
 	 *  
 	 */
+	ClearTerminal clear = new ClearTerminal();
 	public void menuJeu() {
+		clear.clearConsole();
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Veuillez choisir votre jeu :");
 		System.out.println("1 : Matsermind");
@@ -32,7 +35,7 @@ public class Menu {
 		
 		else {
 			System.out.println("Vous avez choisi aucun jeu");
-			
+			clear.clearConsole();
 			menuJeu();
 		}		
 		
@@ -45,6 +48,7 @@ public class Menu {
 	 *  
 	 */
 	public void choixModeCodeSecret() {
+		clear.clearConsole();
 		RechercheCodeSecret recherche = new RechercheCodeSecret();
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Veuillez choisir votre mode :");
@@ -66,6 +70,7 @@ public class Menu {
 		
 		else {
 			System.out.println("Vous avez choisi aucun mode");
+			clear.clearConsole();
 			menuJeu();
 		}		
 		
@@ -76,6 +81,7 @@ public class Menu {
 	 *  
 	 */
 	public void choixModeMastermind() {
+		clear.clearConsole();
 		Mastermind mastermind  = new Mastermind();
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Veuillez choisir votre mode :");
@@ -97,9 +103,12 @@ public class Menu {
 		
 		else {
 			System.out.println("Vous avez choisi aucun mode");
+			clear.clearConsole();
 			menuJeu();
 		}		
 		
 	}
+	
+
 
 }
