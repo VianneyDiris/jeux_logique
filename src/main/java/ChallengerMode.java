@@ -85,26 +85,50 @@ public class ChallengerMode {
 	public void testCombinaison(JoueurHumain humain, JoueurOrdinateur ordinateur) {
 		int compteurBienPlace = 0;
 		int compteurMalPlace  = 0;
-		for (int j = 0;j<reader.getNbCase();j++) {
-			for (int i = 0;i<reader.getNbCase();i++) {
-				
-				if(humain.getTabNombreJoueur()[j]==ordinateur.getTabNombreJoueur()[i]) {
-					if(j==i) {
-					compteurBienPlace=compteurBienPlace+1;
-					}
-					else {
-						compteurMalPlace=compteurMalPlace+1;
-					}
-				}
-				
+		boolean[] masterTest = new boolean[4];
+		boolean[] guessTest = new boolean[4];
+		
+		
+		for(int i = 0;i<reader.getNbCase();i++) {
+			if(humain.getTabNombreJoueur()[i]==ordinateur.getTabNombreJoueur()[i]) {
+				System.out.println(compteurBienPlace);
+				compteurBienPlace++;
+				masterTest[i] = true;
+				guessTest[i] = true;
 			}
 		}
+		
+		if (compteurBienPlace==reader.getNbCase()) {
+			System.out.println("mettre la fonction fin de partie");
+		}
+		else {
+			for(int i=0;i<reader.getNbCase();i++) {
+				for(int j=0;j<reader.getNbCase();j++) {
+					if(ordinateur.getTabNombreJoueur()[i]==humain.getTabNombreJoueur()[j] && !masterTest[i] && !guessTest[j]) {
+						compteurMalPlace++;
+						masterTest[i]=true;
+						guessTest[j]=true;
+					}
+				}
+			}
+		}
+
+		System.out.print("Réponse : ");
+		if(compteurBienPlace>0) 
+		{
+			System.out.print(compteurBienPlace+" bien placé ");
+		}
+		if(compteurMalPlace>0) 
+		{
+			System.out.print(compteurMalPlace+" mal placé ");
+		}
+		
+	}
 			
 		
 		
-		System.out.println("Réponse : "+compteurBienPlace+" bien placé "+compteurMalPlace+" mal placé" );
 		
-	}
+	
 	
 	
 	public void challenger(JoueurHumain humain, JoueurOrdinateur ordinateur) {
