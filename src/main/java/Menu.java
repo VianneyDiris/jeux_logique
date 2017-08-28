@@ -17,7 +17,7 @@ public class Menu {
 		clear.clearConsole();
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Veuillez choisir votre jeu :");
-		System.out.println("1 : Matsermind");
+		System.out.println("1 : Mastermind");
 		System.out.println("2 : Recherche +-");
 		System.out.println("3 : Quitter le programme");
 		int choixJeu = sc.nextInt();
