@@ -67,7 +67,7 @@ public class ChallengerMode {
 				}
 				
 		if (nbEssai==0) {
-			System.out.println("Vous avez perdu, nombre d'essai dépassé.");
+			System.out.println("\nVous avez perdu, nombre d'essai dépassé.");
 			System.out.print("La solution était ");
 			for (int i = 0;i<reader.getNbCase();i++) {
 				System.out.print(ordinateur.getTabNombreJoueur()[i]);
@@ -75,7 +75,7 @@ public class ChallengerMode {
 			
 		}
 		else {
-			System.out.println("Félicitation vous avez trouvé la combinaison");
+			System.out.println("\nFélicitation vous avez trouvé la combinaison");
 			
 		}
 		
@@ -85,13 +85,12 @@ public class ChallengerMode {
 	public void testCombinaison(JoueurHumain humain, JoueurOrdinateur ordinateur) {
 		int compteurBienPlace = 0;
 		int compteurMalPlace  = 0;
-		boolean[] masterTest = new boolean[4];
-		boolean[] guessTest = new boolean[4];
+		boolean[] masterTest = new boolean[reader.getNbCase()];
+		boolean[] guessTest = new boolean[reader.getNbCase()];
 		
 		
 		for(int i = 0;i<reader.getNbCase();i++) {
 			if(humain.getTabNombreJoueur()[i]==ordinateur.getTabNombreJoueur()[i]) {
-				System.out.println(compteurBienPlace);
 				compteurBienPlace++;
 				masterTest[i] = true;
 				guessTest[i] = true;
@@ -99,7 +98,7 @@ public class ChallengerMode {
 		}
 		
 		if (compteurBienPlace==reader.getNbCase()) {
-			System.out.println("mettre la fonction fin de partie");
+			
 		}
 		else {
 			for(int i=0;i<reader.getNbCase();i++) {
@@ -112,8 +111,9 @@ public class ChallengerMode {
 				}
 			}
 		}
-
-		System.out.print("Réponse : ");
+	
+		
+		System.out.print("-> Réponse : ");
 		if(compteurBienPlace>0) 
 		{
 			System.out.print(compteurBienPlace+" bien placé ");
@@ -122,6 +122,7 @@ public class ChallengerMode {
 		{
 			System.out.print(compteurMalPlace+" mal placé ");
 		}
+		System.out.println("");
 		
 	}
 			
@@ -133,8 +134,28 @@ public class ChallengerMode {
 	
 	public void challenger(JoueurHumain humain, JoueurOrdinateur ordinateur) {
 		ordinateur.combinaison();
-		humain.choixCombinaison();
-		testCombinaison(humain,ordinateur);
+		
+		int nbEssai = reader.getNbEssai();
+		while(!Arrays.equals(humain.getTabNombreJoueur(),ordinateur.getTabNombreJoueur()) && nbEssai!=0) {
+			System.out.print("Proposition : ");
+			humain.choixCombinaison();
+			testCombinaison(humain,ordinateur);
+			nbEssai--;
+		}
+		
+		if (nbEssai==0) {
+			System.out.println("\nVous avez perdu, nombre d'essai dépassé.");
+			System.out.print("La solution était ");
+			for (int i = 0;i<reader.getNbCase();i++) {
+				System.out.print(ordinateur.getTabNombreJoueur()[i]);
+				}
+			
+		}
+		else {
+			System.out.println("\nFélicitation vous avez trouvé la combinaison");
+			
+		}
+		
 	}
 	
 	

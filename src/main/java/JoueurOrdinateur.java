@@ -36,10 +36,12 @@ public class JoueurOrdinateur extends Joueur {
 			this.tabNombreJoueur[i] = chiffre;
 			}
 		
-		for (int i = 0;i<this.reader.getNbCase();i++) {
-			System.out.print(this.tabNombreJoueur[i]);
+		if(this.reader.getModeDeveloppeur()==true) {
+			for (int i = 0;i<this.reader.getNbCase();i++) {
+				System.out.print(this.tabNombreJoueur[i]);
+				}
+			System.out.println("");
 			}
-		System.out.println("");
 	}
 	
 	/**

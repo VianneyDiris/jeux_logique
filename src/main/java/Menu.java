@@ -58,14 +58,74 @@ public class Menu {
 		int choixMode = sc.nextInt();
 		
 		if (choixMode==1) {
+			clear.clearConsole();
 			recherche.challenger();
+			sc = new Scanner(System.in);
+			System.out.println("\nVoulez vous :");
+			System.out.println("1 : rejouer");
+			System.out.println("2 : changer de jeu");
+			System.out.println("3 : quitter le programme");
+			int choix = sc.nextInt();
+			
+			if (choix==1) {
+				clear.clearConsole();
+				recherche.challenger();
+			}
+			else if (choix==2) {
+				clear.clearConsole();
+				menuJeu();
+			}
+			else {
+				
+			}
 		}
 		else if (choixMode==2) {
+			clear.clearConsole();
 			recherche.defenseur();
+		
+			sc = new Scanner(System.in);
+			System.out.println("\nVoulez vous :");
+			System.out.println("1 : rejouer");
+			System.out.println("2 : changer de jeu");
+			System.out.println("3 : quitter le programme");
+			int choix = sc.nextInt();
+			
+			if (choix==1) {
+				clear.clearConsole();
+				recherche.defenseur();
+			}
+			else if (choix==2) {
+				clear.clearConsole();
+				menuJeu();
+			}
+			else {
+				
+			}
 			
 		}
 		else if (choixMode==3) {
+			clear.clearConsole();
 			recherche.duel();
+		
+			sc = new Scanner(System.in);
+			System.out.println("\nVoulez vous :");
+			System.out.println("1 : rejouer");
+			System.out.println("2 : changer de jeu");
+			System.out.println("3 : quitter le programme");
+			int choix = sc.nextInt();
+			
+			if (choix==1) {
+				clear.clearConsole();
+				recherche.duel();
+			}
+			else if (choix==2) {
+				clear.clearConsole();
+				menuJeu();
+			}
+			else {
+				
+			}
+			
 		}
 		
 		else {
@@ -84,14 +144,34 @@ public class Menu {
 		clear.clearConsole();
 		Mastermind mastermind  = new Mastermind();
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Veuillez choisir votre mode :");
+		System.out.println("\nVeuillez choisir votre mode :");
 		System.out.println("1 : Challenger");
 		System.out.println("2 : Défenseur");
 		System.out.println("3 : Duel");
 		int choixMode = sc.nextInt();
 		
 		if (choixMode==1) {
+			clear.clearConsole();
 			mastermind.challenger();
+			
+			sc = new Scanner(System.in);
+			System.out.println("\nVoulez vous :");
+			System.out.println("1 : rejouer");
+			System.out.println("2 : changer de jeu");
+			System.out.println("3 : quitter le programme");
+			int choix = sc.nextInt();
+			
+			if (choix==1) {
+				clear.clearConsole();
+				mastermind.challenger();
+			}
+			else if (choix==2) {
+				clear.clearConsole();
+				menuJeu();
+			}
+			else {
+				
+			}
 		}
 		else if (choixMode==2) {
 			

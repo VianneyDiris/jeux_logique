@@ -10,6 +10,7 @@ import org.apache.commons.lang3.ArrayUtils;
 public class JoueurHumain extends Joueur {
 	private ReaderFile reader = new ReaderFile();
 	private int tabNombreJoueur[] = new int [reader.getNbCase()];
+	private ClearTerminal clear = new ClearTerminal();
 	
 	/**
 	 *fonction qui demande au joueur d'entrer un nombre
@@ -17,7 +18,7 @@ public class JoueurHumain extends Joueur {
 	 */
 	public void choixNombre() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Veuillez saisir un nombre");
+		System.out.print("\nProposition : ");
 		int nombre = sc.nextInt();
 		int current=nombre;
 			for (int i = 0;i<reader.getNbCase();i++) {
@@ -26,6 +27,7 @@ public class JoueurHumain extends Joueur {
 			}
 			//renverse le tableau
 			ArrayUtils.reverse(tabNombreJoueur);
+			
 	}
 	
 	/**
@@ -34,7 +36,6 @@ public class JoueurHumain extends Joueur {
 	 */
 	public void choixCombinaison() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Veuillez saisir une combinaison entre 0 et "+reader.getNbChiffre());
 		int nombre = sc.nextInt();
 		int current=nombre;
 			for (int i = 0;i<reader.getNbCase();i++) {
@@ -47,6 +48,7 @@ public class JoueurHumain extends Joueur {
 			}
 			//renverse le tableau
 			ArrayUtils.reverse(this.tabNombreJoueur);
+			
 			
 			
 	}
