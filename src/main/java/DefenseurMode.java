@@ -1,8 +1,13 @@
 package main.java;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Set;
 
 import org.apache.commons.lang3.ArrayUtils;
 
@@ -14,6 +19,7 @@ import org.apache.commons.lang3.ArrayUtils;
 public class DefenseurMode {
 	ReaderFile reader = new ReaderFile();
 	String tabIndice[] = new String [reader.getNbCase()];
+	
 	
 		/**
 		 *fonction qui demande les indices aux joueurs + verifie les indices
@@ -65,7 +71,8 @@ public class DefenseurMode {
 		
 		/**
 		 *fonction qui permet de jouer en mode defenseur
-		 * @param JoueurHumain,JoueurOrdinateur
+		 * @param JoueurHumain
+		 * @param JoueurOrdinateur
 		 * 
 		 */
 		public void partieDefenseur(JoueurHumain humain, JoueurOrdinateur ordinateur) {
@@ -90,6 +97,105 @@ public class DefenseurMode {
 			}
 			
 		}
+		
+		public void defenseur(JoueurHumain humain, JoueurOrdinateur ordinateur) {
+			humain.choixCombinaison();
+			ordinateur.combinaison();
+			while (!Arrays.equals(humain.getTabNombreJoueur(), ordinateur.getTabNombreJoueur())) {
+				testCombinaison(humain,ordinateur);
+				for (int i = 0;i<reader.getNbCase();i++) {
+					System.out.print(ordinateur.getTabNombreJoueur()[i]);
+					}
+			}
+			
+			if(Arrays.equals(humain.getTabNombreJoueur(), ordinateur.getTabNombreJoueur())) {
+				System.out.println("Dommage,l'ordinateur a trouvé votre combinaison");
+			}
+			
+		
+			
+			
+			
+		}
+		
+		public void testCombinaison(JoueurHumain humain, JoueurOrdinateur ordinateur) {
+			int compteurBienPlace = 0;
+			int compteurMalPlace  = 0;
+			boolean[] masterTest = new boolean[reader.getNbCase()];
+			boolean[] guessTest = new boolean[reader.getNbCase()];
+			boolean[] testBP = new boolean[reader.getNbCase()];
+			int [] tempNombreJoueur = new int [reader.getNbCase()]; 
+			
+			
+			
+			for(int i = 0;i<reader.getNbCase();i++) {
+				if(humain.getTabNombreJoueur()[i]==ordinateur.getTabNombreJoueur()[i]) {
+					compteurBienPlace++;
+					masterTest[i] = true;
+					guessTest[i] = true;
+					tempNombreJoueur[i]=ordinateur.getTabNombreJoueur()[i];
+					testBP[i]= true;
+				
+					
+					
+				}
+			}
+			
+			if (compteurBienPlace==reader.getNbCase()) {
+				
+			}
+			else {
+				for(int i=0;i<reader.getNbCase();i++) {
+					for(int j=0;j<reader.getNbCase();j++) {
+						if(ordinateur.getTabNombreJoueur()[i]==humain.getTabNombreJoueur()[j] && !masterTest[i] && !guessTest[j]) {
+							compteurMalPlace++;
+							masterTest[i]=true;
+							guessTest[j]=true;
+
+							if(i-1<reader.getNbCase()-1 && !testBP[i+1]) {
+								tempNombreJoueur[i+1]=ordinateur.getTabNombreJoueur()[i];
+								testBP[i+1]=true;
+							}
+							
+							for (int k=0;k<reader.getNbCase();k++) {
+							if(i==reader.getNbCase()-1 &&!testBP[k]) {
+								tempNombreJoueur[k]=ordinateur.getTabNombreJoueur()[i-1];
+								testBP[k]=true;
+							}
+							}
+
+							
+														
+						}
+					}
+				}
+			}
+		
+			
+			System.out.print("-> Réponse : ");
+			if(compteurBienPlace>0) 
+			{
+				System.out.print(compteurBienPlace+" bien placé ");
+			}
+			if(compteurMalPlace>0) 
+			{
+				System.out.print(compteurMalPlace+" présent ");
+			}
+			System.out.println("");
+			for(int l = 0;l<reader.getNbCase();l++) {
+				if(l<reader.getNbCase() && !testBP[l]) {
+					tempNombreJoueur[l]= new Random().nextInt(reader.getNbChiffre() - 0);
+				}
+			}
+			
+			
+			for (int i = 0;i<reader.getNbCase();i++) {
+				ordinateur.getTabNombreJoueur()[i]=tempNombreJoueur[i];
+				}
+			
+		}
+		
+		
 		
 
 }

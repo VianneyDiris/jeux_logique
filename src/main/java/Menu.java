@@ -174,7 +174,7 @@ public class Menu {
 			}
 		}
 		else if (choixMode==2) {
-			
+			mastermind.defenseur();
 			
 		}
 		else if (choixMode==3) {

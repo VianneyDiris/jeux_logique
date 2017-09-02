@@ -27,7 +27,7 @@ public class Mastermind {
 	 *  
 	 */
 	public void defenseur() {
-		defenseur.partieDefenseur(humain, ordinateur);
+		defenseur.defenseur(humain, ordinateur);
 	}
 	
 	/**
