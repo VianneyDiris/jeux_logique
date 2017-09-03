@@ -149,22 +149,24 @@ public class DefenseurMode {
 					for(int j=0;j<reader.getNbCase();j++) {
 						if(ordinateur.getTabNombreJoueur()[i]==humain.getTabNombreJoueur()[j] && !masterTest[i] && !guessTest[j]) {
 							compteurMalPlace++;
-							masterTest[i]=true;
+							
 							guessTest[j]=true;
-
-							if(i-1<reader.getNbCase()-1 && !testBP[i+1]) {
-								tempNombreJoueur[i+1]=ordinateur.getTabNombreJoueur()[i];
-								testBP[i+1]=true;
-							}
 							
 							for (int k=0;k<reader.getNbCase();k++) {
-							if(i==reader.getNbCase()-1 &&!testBP[k]) {
-								tempNombreJoueur[k]=ordinateur.getTabNombreJoueur()[i-1];
-								testBP[k]=true;
+								if(i!=k && !testBP[k] && !masterTest[i]) {
+									tempNombreJoueur[k]=ordinateur.getTabNombreJoueur()[i];
+									testBP[k]=true;
+									masterTest[i]=true;
+								
+								}
+								if(i==reader.getNbCase()-1 &&!testBP[k] && !masterTest[i]) {
+									tempNombreJoueur[k]=ordinateur.getTabNombreJoueur()[i];
+									testBP[k]=true;
+									masterTest[i]=true;
+								}
 							}
-							}
-
 							
+												
 														
 						}
 					}
