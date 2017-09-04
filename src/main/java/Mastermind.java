@@ -35,7 +35,7 @@ public class Mastermind {
 	 *  
 	 */
 	public void duel() {
-		duel.partieDuel(humain, ordinateur, humain2, ordinateur2);
+		duel.duel(humain, humain2, ordinateur, ordinateur2);
 	}
 
 

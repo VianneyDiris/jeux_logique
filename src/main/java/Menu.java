@@ -178,7 +178,7 @@ public class Menu {
 			
 		}
 		else if (choixMode==3) {
-			
+			mastermind.duel();
 		}
 		
 		else {

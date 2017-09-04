@@ -101,22 +101,29 @@ public class DefenseurMode {
 		public void defenseur(JoueurHumain humain, JoueurOrdinateur ordinateur) {
 			humain.choixCombinaison();
 			ordinateur.combinaison();
-			while (!Arrays.equals(humain.getTabNombreJoueur(), ordinateur.getTabNombreJoueur())) {
+			int nbEssai = reader.getNbEssai();
+			while (!Arrays.equals(humain.getTabNombreJoueur(), ordinateur.getTabNombreJoueur())&& nbEssai!=0) {
 				testCombinaison(humain,ordinateur);
 				for (int i = 0;i<reader.getNbCase();i++) {
 					System.out.print(ordinateur.getTabNombreJoueur()[i]);
 					}
+				nbEssai--;
+			}
+			System.out.println("");
+			if (nbEssai==0) {
+				System.out.println("Vous avez gagné,le nombre d'essai est dépassé.");
+								
+			}
+			else {
+				System.out.println("Désolé mais vous avez perdu, l'ordinateur a trouvé votre combinaison.");
+				
 			}
 			
-			if(Arrays.equals(humain.getTabNombreJoueur(), ordinateur.getTabNombreJoueur())) {
-				System.out.println("Dommage,l'ordinateur a trouvé votre combinaison");
-			}
-			
-		
-			
+					
 			
 			
 		}
+		
 		
 		public void testCombinaison(JoueurHumain humain, JoueurOrdinateur ordinateur) {
 			int compteurBienPlace = 0;
@@ -185,8 +192,13 @@ public class DefenseurMode {
 			}
 			System.out.println("");
 			for(int l = 0;l<reader.getNbCase();l++) {
-				if(l<reader.getNbCase() && !testBP[l]) {
-					tempNombreJoueur[l]= new Random().nextInt(reader.getNbChiffre() - 0);
+				if(l<reader.getNbCase() && !testBP[l] && ordinateur.getTabNombreJoueur()[l]+1<=reader.getNbChiffre()) {
+					tempNombreJoueur[l]= ordinateur.getTabNombreJoueur()[l]+1;
+					testBP[l]=true;
+				}
+				if(l<reader.getNbCase() && !testBP[l] && ordinateur.getTabNombreJoueur()[l]+1>reader.getNbChiffre()) {
+					tempNombreJoueur[l]=0;
+					testBP[l]=true;
 				}
 			}
 			
