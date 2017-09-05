@@ -103,11 +103,20 @@ public class DefenseurMode {
 			ordinateur.combinaison();
 			int nbEssai = reader.getNbEssai();
 			while (!Arrays.equals(humain.getTabNombreJoueur(), ordinateur.getTabNombreJoueur())&& nbEssai!=0) {
-				testCombinaison(humain,ordinateur);
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 				for (int i = 0;i<reader.getNbCase();i++) {
 					System.out.print(ordinateur.getTabNombreJoueur()[i]);
 					}
+				testCombinaison(humain,ordinateur);
+				
 				nbEssai--;
+			
 			}
 			System.out.println("");
 			if (nbEssai==0) {
