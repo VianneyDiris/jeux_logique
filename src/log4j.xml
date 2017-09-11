@@ -3,7 +3,8 @@
 <log4j:configuration debug="true"
 	xmlns:log4j='http://jakarta.apache.org/log4j/'>
 
-	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+	<appender name="FA" class="org.apache.log4j.FileAppender">
+		<param name="File" value="./log/jeu_logique_log.log"/>
 	    <layout class="org.apache.log4j.PatternLayout">
 		<param name="ConversionPattern"
 		  value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
@@ -12,7 +13,7 @@
 
 	<root>
 		<level value="DEBUG" />
-		<appender-ref ref="console" />
+		<appender-ref ref="FA" />
 	</root>
 
 </log4j:configuration>

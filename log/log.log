@@ -1,0 +1,8 @@
+2017-09-11 15:37:11 ERROR Menu:31 - erreur dans la méthode menuJeu :
+java.util.InputMismatchException
+	at java.util.Scanner.throwFor(Unknown Source)
+	at java.util.Scanner.next(Unknown Source)
+	at java.util.Scanner.nextInt(Unknown Source)
+	at java.util.Scanner.nextInt(Unknown Source)
+	at main.java.Menu.menuJeu(Menu.java:28)
+	at main.java.Main.main(Main.java:16)

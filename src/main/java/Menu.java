@@ -2,6 +2,8 @@ package main.java;
 
 import java.io.IOException;
 import java.util.Scanner;
+
+import org.apache.log4j.Logger;
 /**
  * @author vianney
  * @version 0.1
@@ -12,6 +14,7 @@ public class Menu {
 	 *fonction qui permet de choisir son jeu
 	 *  
 	 */
+	private static final Logger logger = Logger.getLogger(Menu.class);
 	ClearTerminal clear = new ClearTerminal();
 	public void menuJeu() {
 		clear.clearConsole();
@@ -20,11 +23,16 @@ public class Menu {
 		System.out.println("1 : Mastermind");
 		System.out.println("2 : Recherche +-");
 		System.out.println("3 : Quitter le programme");
-		try {int choixJeu = sc.nextInt();
+		int choixJeu=0;
+		try{
+			choixJeu = sc.nextInt();
 		}
-		
-		
-		
+		catch(Exception e) {
+			logger.error("erreur dans la méthode menuJeu :",e);
+		}
+		finally {
+			
+		}
 		if (choixJeu==1) {
 			choixModeMastermind();
 		}
@@ -58,7 +66,16 @@ public class Menu {
 		System.out.println("1 : Challenger");
 		System.out.println("2 : Défenseur");
 		System.out.println("3 : Duel");
-		int choixMode = sc.nextInt();
+		int choixMode = 0;
+		try{
+			choixMode = sc.nextInt();
+		}
+		catch(Exception e) {
+			logger.error("erreur dans la méthode choixModeCodeSecret :",e);
+		}
+		finally {
+			
+		}
 		
 		if (choixMode==1) {
 			clear.clearConsole();
@@ -99,7 +116,7 @@ public class Menu {
 			}
 			else if (choix==2) {
 				clear.clearConsole();
-				menuJeu();
+				choixModeCodeSecret();
 			}
 			else {
 				
@@ -151,7 +168,17 @@ public class Menu {
 		System.out.println("1 : Challenger");
 		System.out.println("2 : Défenseur");
 		System.out.println("3 : Duel");
-		int choixMode = sc.nextInt();
+		int choixMode = 0;
+		try{
+			choixMode = sc.nextInt();
+		}
+		catch(Exception e) {
+			logger.error("erreur dans la méthode choixModeMastermind :",e);
+		}
+		finally {
+			
+		}
+		
 		
 		if (choixMode==1) {
 			clear.clearConsole();
@@ -187,7 +214,7 @@ public class Menu {
 		else {
 			System.out.println("Vous avez choisi aucun mode");
 			clear.clearConsole();
-			menuJeu();
+			choixModeMastermind();
 		}		
 		
 	}
