@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
  *classe permettant de lancer le jeu
  */
 public class Main {
-	static Logger logger = Logger.getLogger(Main.class);
+	private static final Logger logger = Logger.getLogger(Main.class);
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		

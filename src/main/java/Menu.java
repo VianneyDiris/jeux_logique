@@ -20,7 +20,10 @@ public class Menu {
 		System.out.println("1 : Mastermind");
 		System.out.println("2 : Recherche +-");
 		System.out.println("3 : Quitter le programme");
-		int choixJeu = sc.nextInt();
+		try {int choixJeu = sc.nextInt();
+		}
+		
+		
 		
 		if (choixJeu==1) {
 			choixModeMastermind();
