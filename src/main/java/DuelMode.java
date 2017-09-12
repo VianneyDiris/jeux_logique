@@ -11,6 +11,7 @@ public class DuelMode {
 	ReaderFile reader = new ReaderFile();
 	String tabIndice[] = new String [reader.getNbCase()];
 	
+	
 	/**
 	 *fonction qui fournit les indices au joueur
 	 * @param JoueurHumain,JoueurOrdinateur
@@ -36,6 +37,7 @@ public class DuelMode {
 		for (int i = 0;i<humain.getTabNombreJoueur().length;i++) {
 			System.out.print(tabIndice[i]);
 		}
+		System.out.println("");
 	}
 	
 	/**
@@ -83,7 +85,7 @@ public class DuelMode {
 				for (int i = 0;i<reader.getNbCase();i++) {
 					System.out.print(ordinateur.getTabNombreJoueur()[i]);
 					}
-				
+				System.out.println("");
 			}
 	
 	/**
@@ -92,18 +94,30 @@ public class DuelMode {
 	* 
 	*/		
 	public void partieDuel(JoueurHumain humain, JoueurOrdinateur ordinateur,JoueurHumain humain2, JoueurOrdinateur ordinateur2) {
+		System.out.print("Duel : partie challenger\n");
 		ordinateur.randomNumber();
 		humain.choixNombre();
 		comparerNombre(humain,ordinateur);
+		System.out.println(" ");
+		System.out.print("Duel : partie défenseur");
 		humain2.choixNombre();
 		ordinateur2.choixNombre();
+		System.out.print(" ->");
 		indice(humain2,ordinateur2);
 		adapteNumero(ordinateur2);
 		int nbEssai = reader.getNbEssai();
 		while (!Arrays.equals(humain.getTabNombreJoueur(),ordinateur.getTabNombreJoueur()) && nbEssai!=0 && !Arrays.equals(humain2.getTabNombreJoueur(),ordinateur2.getTabNombreJoueur())) {
-			
+			System.out.println(" ");
+			System.out.print("Duel : partie challenger");
 			humain.choixNombre();
 			comparerNombre(humain,ordinateur);
+		
+			System.out.println(" ");
+			System.out.print("Duel : partie défenseur\n");
+			for (int i = 0;i<reader.getNbCase();i++) {
+				System.out.print(ordinateur2.getTabNombreJoueur()[i]);
+				}
+			System.out.print(" ->");
 			indice(humain2,ordinateur2);
 			adapteNumero(ordinateur2);
 			
@@ -116,7 +130,7 @@ public class DuelMode {
 										
 				}
 				
-		if (nbEssai==0 && !Arrays.equals(humain.getTabNombreJoueur(),ordinateur.getTabNombreJoueur())) {
+		if (!Arrays.equals(humain.getTabNombreJoueur(),ordinateur.getTabNombreJoueur())) {
 			System.out.println("Vous avez perdu.");
 			System.out.print("La solution était ");
 			for (int i = 0;i<reader.getNbCase();i++) {
@@ -124,14 +138,14 @@ public class DuelMode {
 				}
 			
 		}
-		if (nbEssai==0 && !Arrays.equals(humain2.getTabNombreJoueur(),ordinateur2.getTabNombreJoueur())) {
+		if (!Arrays.equals(humain2.getTabNombreJoueur(),ordinateur2.getTabNombreJoueur())) {
 			System.out.println("Félicitation vous avez vaincu l'ordinateur");
 			
 		}
-		if (nbEssai!=0 && Arrays.equals(humain.getTabNombreJoueur(),ordinateur.getTabNombreJoueur())) {
+		if (Arrays.equals(humain.getTabNombreJoueur(),ordinateur.getTabNombreJoueur())) {
 			System.out.println("Félicitation vous avez trouvé la bonne combinaison dans le temps imparti");
 		}
-		if (nbEssai!=0 && Arrays.equals(humain2.getTabNombreJoueur(),ordinateur2.getTabNombreJoueur())) {
+		if (Arrays.equals(humain2.getTabNombreJoueur(),ordinateur2.getTabNombreJoueur())) {
 			System.out.println("Vous avez perdu. L'ordinateur a trouvé votre combinaison");
 			
 			

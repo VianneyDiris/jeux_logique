@@ -22,7 +22,6 @@ public class JoueurOrdinateur extends Joueur {
 		for (int i = 0;i<this.reader.getNbCase();i++) {
 			System.out.print(this.tabNombreJoueur[i]);
 			}
-		System.out.println("");
 		}
 	}
 	
@@ -40,7 +39,6 @@ public class JoueurOrdinateur extends Joueur {
 			for (int i = 0;i<this.reader.getNbCase();i++) {
 				System.out.print(this.tabNombreJoueur[i]);
 				}
-			System.out.println("");
 			}
 	}
 	

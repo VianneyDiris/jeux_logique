@@ -1,0 +1,70 @@
+2017-09-11 16:09:38 ERROR Menu:31 - erreur dans la méthode menuJeu :
+java.util.InputMismatchException
+	at java.util.Scanner.throwFor(Unknown Source)
+	at java.util.Scanner.next(Unknown Source)
+	at java.util.Scanner.nextInt(Unknown Source)
+	at java.util.Scanner.nextInt(Unknown Source)
+	at main.java.Menu.menuJeu(Menu.java:28)
+	at main.java.Main.main(Main.java:16)
+2017-09-11 16:09:44 ERROR Menu:176 - erreur dans la méthode choixModeMastermind :
+java.util.InputMismatchException
+	at java.util.Scanner.throwFor(Unknown Source)
+	at java.util.Scanner.next(Unknown Source)
+	at java.util.Scanner.nextInt(Unknown Source)
+	at java.util.Scanner.nextInt(Unknown Source)
+	at main.java.Menu.choixModeMastermind(Menu.java:173)
+	at main.java.Menu.menuJeu(Menu.java:37)
+	at main.java.Menu.menuJeu(Menu.java:50)
+	at main.java.Main.main(Main.java:16)
+2017-09-11 16:15:50 ERROR Menu:31 - erreur dans la méthode menuJeu :
+java.util.InputMismatchException
+	at java.util.Scanner.throwFor(Unknown Source)
+	at java.util.Scanner.next(Unknown Source)
+	at java.util.Scanner.nextInt(Unknown Source)
+	at java.util.Scanner.nextInt(Unknown Source)
+	at main.java.Menu.menuJeu(Menu.java:28)
+	at main.java.Main.main(Main.java:16)
+2017-09-11 16:15:56 ERROR Menu:176 - erreur dans la méthode choixModeMastermind :
+java.util.InputMismatchException
+	at java.util.Scanner.throwFor(Unknown Source)
+	at java.util.Scanner.next(Unknown Source)
+	at java.util.Scanner.nextInt(Unknown Source)
+	at java.util.Scanner.nextInt(Unknown Source)
+	at main.java.Menu.choixModeMastermind(Menu.java:173)
+	at main.java.Menu.menuJeu(Menu.java:37)
+	at main.java.Menu.menuJeu(Menu.java:50)
+	at main.java.Main.main(Main.java:16)
+2017-09-11 19:33:17 ERROR Menu:31 - erreur dans la méthode menuJeu :
+java.util.InputMismatchException
+	at java.util.Scanner.throwFor(Unknown Source)
+	at java.util.Scanner.next(Unknown Source)
+	at java.util.Scanner.nextInt(Unknown Source)
+	at java.util.Scanner.nextInt(Unknown Source)
+	at main.java.Menu.menuJeu(Menu.java:28)
+	at main.java.Main.main(Main.java:16)
+2017-09-11 19:35:01 ERROR Menu:31 - erreur dans la méthode menuJeu :
+java.util.InputMismatchException
+	at java.util.Scanner.throwFor(Unknown Source)
+	at java.util.Scanner.next(Unknown Source)
+	at java.util.Scanner.nextInt(Unknown Source)
+	at java.util.Scanner.nextInt(Unknown Source)
+	at main.java.Menu.menuJeu(Menu.java:28)
+	at main.java.Main.main(Main.java:16)
+2017-09-11 19:35:06 ERROR Menu:176 - erreur dans la méthode choixModeMastermind :
+java.util.InputMismatchException
+	at java.util.Scanner.throwFor(Unknown Source)
+	at java.util.Scanner.next(Unknown Source)
+	at java.util.Scanner.nextInt(Unknown Source)
+	at java.util.Scanner.nextInt(Unknown Source)
+	at main.java.Menu.choixModeMastermind(Menu.java:173)
+	at main.java.Menu.menuJeu(Menu.java:37)
+	at main.java.Menu.menuJeu(Menu.java:50)
+	at main.java.Main.main(Main.java:16)
+2017-09-11 19:44:40 ERROR Menu:31 - erreur dans la méthode menuJeu :
+java.util.InputMismatchException
+	at java.util.Scanner.throwFor(Unknown Source)
+	at java.util.Scanner.next(Unknown Source)
+	at java.util.Scanner.nextInt(Unknown Source)
+	at java.util.Scanner.nextInt(Unknown Source)
+	at main.java.Menu.menuJeu(Menu.java:28)
+	at main.java.Main.main(Main.java:16)

@@ -83,7 +83,7 @@ public class DefenseurMode {
 						indice(humain,ordinateur);
 						adapteNumero(ordinateur);						
 						nbEssai--;
-						System.out.println("\nIl reste "+nbEssai+" tours");
+//						System.out.println("\nIl reste "+nbEssai+" tours");
 											
 					}
 					
